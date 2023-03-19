@@ -11,6 +11,7 @@ const Navbar = () => {
             <div>
                 <button className="text-white text-lg h-full px-6 font-semibold hover:bg-[#38BC7D] hover:drop-shadow-sm">Perfil</button>
                 <button className="text-white text-lg h-full px-6 font-semibold hover:bg-[#38BC7D] hover:drop-shadow-sm">Salir</button>
+
             </div>
         </div>
     )
