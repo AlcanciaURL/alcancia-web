@@ -12,6 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <div className="bg-black">testss</div>
+        <div><h1> JAJAJA</h1></div>
       </main>
     </>
   )
