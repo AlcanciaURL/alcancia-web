@@ -15,7 +15,7 @@ const Home = () => {
                             <div className="grid grid-cols-1 p-2 gap-3 place-items-center">
                                 <div className="bg-[#D9D9D9] rounded-lg flex justify-between pl-4 pr-4 w-[100%] items-center">
                                     <span className="text-3xl text-[#969696] text-center p-2"><FontAwesomeIcon icon={faUser} /></span>
-                                    <span>Nombre de usuario</span>
+                                    <span>NOMBRE DE USUARIO</span>
                                 </div>
                                 <div className="">
                                     <button className="bg-[#D9D9D9] w-12 h-12 rounded-full hover:bg-[#329F5B] hover:text-white align-middle font-bold text-lg">+</button>
