@@ -6,14 +6,14 @@ import Empty from '@/layouts/Empty'
 
 const LogIn = () => {
   return (
-    <div className="bg-white ">
+    <>
       <Navbarlogin />
       <div className="flex items-center justify-center h-screen ">
-        <div className="bg-[#F0F7F4] rounded-lg shadow-sm p-10 pt-20 border-8 border-[#B3BFB8] sm:w-[40%] w-[100%]">
+        <div className="bg-[#F0F7F4] rounded-lg shadow-sm p-10 border-8 border-[#B3BFB8] sm:w-[30%] w-[100%]">
           <LogInForm />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

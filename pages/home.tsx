@@ -7,9 +7,9 @@ const Home = () => {
     <div className="bg-[white] ">
       <Navbar></Navbar>
       <div className="flex items-center justify-center h-screen ">
-        <div className="bg-[#F0F7F4] rounded-lg border shadow-sm p-10 pt-20 border-8 border-[#B3BFB8] sm:w-[65%] w-[100%]">
+        <div className="bg-[#F0F7F4] rounded-lg border shadow-sm p-10 pt-20 border-[#B3BFB8] sm:w-[65%] w-[100%]">
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-[white] rounded-lg border-dashed shadow-xl border-2 border-[#329F5B] shadow-[6px_9px_5px_0px_#a0aec0]">
+            <div className="bg-[white] rounded-lg border-dashed shadow-xl border-2 border-[#329F5B]">
               <div className="grid grid-cols-1 p-2 gap-3 place-items-center">
                 <div className="bg-[#D9D9D9] rounded-lg flex justify-between pl-4 pr-4 w-[100%] items-center">
                   <span className="text-3xl text-[#969696] text-center p-2">
@@ -50,7 +50,7 @@ const Home = () => {
                       Monto
                     </label>
                     <input
-                      className="bg-[#CCDBD2] w-[100%] appearance-none rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
+                      className="bg-[#CCDBD2] appearance-none rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
                       type="text"
                     />
                     <button className="bg-[#B3BFB8] p-2 mt-3 rounded-lg  hover:bg-[#329F5B] hover:text-white align-middle font-sm text-sm text-center">
@@ -59,10 +59,9 @@ const Home = () => {
                   </div>
                   <div className="grid grid-cols-1 bg-[#D9D9D9] place-items-center">
                     <label className="block mb-2 text-base font-medium text-[#3C493F] pr-4 w-[100%]">
-                      Debito
                     </label>
                     <input
-                      className="bg-[#CCDBD2] w-[100%] appearance-none rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
+                      className="bg-[#CCDBD2] appearance-none rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
                       type="text"
                     />
                     <button className="bg-[#B3BFB8] p-2 mt-3 rounded-lg  hover:bg-[#329F5B] hover:text-white align-middle font-sm text-sm text-center">

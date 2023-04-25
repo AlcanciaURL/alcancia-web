@@ -13,7 +13,7 @@ const ConfirmButton = ({
 }: ConfirmButtonProps) => {
   return (
     <button
-      className="bg-[#329F5B] hover:bg-[#CCDBD2] text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+      className="bg-[#329F5B] w-full hover:bg-[#CCDBD2] text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
       type={type}
       onClick={onClick}
     >

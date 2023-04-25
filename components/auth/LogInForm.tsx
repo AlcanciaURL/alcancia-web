@@ -9,6 +9,7 @@ import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import ConfirmButton from '../controls/ConfirmButton'
 import { GoogleAuthProvider } from 'firebase/auth'
+import GoogleLogo from '../assets/GoogleLogo'
 
 const LogInForm = () => {
   const { register, handleSubmit } = useForm()
@@ -57,11 +58,18 @@ const LogInForm = () => {
 
   return (
     <>
-      <div>
-        <h1>Ingresar</h1>
-      </div>
+      <button
+        onClick={() => google()}
+        className="w-full mb-4 flex justify-center items-center bg-maingreen hover:bg-[#CCDBD2] text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+      >
+        <div>Ingresar con Google</div>
+        <div className="w-8 h-8 bg-white p-1 ml-4 rounded">
+          <GoogleLogo />
+        </div>
+      </button>
+      <div className="w-full h-[1px] my-6 bg-gray-400" />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="border-dashed border-2 border-[#329F5B] raunded-xl p-3 ">
+        <div className="border-dashed border-2 border-maingreen raunded-xl p-3 ">
           <Input label="Email" register={{ ...register('email') }} />
           <Input
             label="Contraseña"
@@ -78,8 +86,14 @@ const LogInForm = () => {
             ¿Olvisate tu contraseña?
           </a> */}
         </div>
+        <div className="flex items-center justify-between pt-5">
+          <button
+            className="w-full bg-gray-200 text-gray-800 hover:bg-[#CCDBD2] font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+          >
+            Registrarse
+          </button>
+        </div>
       </form>
-      <button onClick={() => google()}>Google</button>
     </>
   )
 }

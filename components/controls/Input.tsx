@@ -14,7 +14,7 @@ const Input = ({ label, register, type = 'text' }: InputProps) => {
       </label>
       <input
         {...register}
-        className="bg-[#CCDBD2] appearance-none rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
+        className="bg-gray-400 appearance-none mb-2 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
         type={type}
       />
     </>
