@@ -6,8 +6,8 @@ const Navbarlogin = () => {
         <span className="inline-block align-middle drop-shadow-xl">Savings Vault</span>
       </div>
       <div>
-      <button className="text-white text-lg h-full px-6 font-semibold hover:bg-[#38BC7D] hover:drop-shadow-sm">Log In</button>
-      <button className="text-white text-lg h-full px-6 font-semibold hover:bg-[#38BC7D] hover:drop-shadow-sm">Sign In</button>
+      <button className="text-white text-lg h-full px-6 font-semibold hover:bg-[#38BC7D] hover:drop-shadow-sm">Ingresar</button>
+      <button className="text-white text-lg h-full px-6 font-semibold hover:bg-[#38BC7D] hover:drop-shadow-sm">Registrarse</button>
       </div>
     </div>
   )

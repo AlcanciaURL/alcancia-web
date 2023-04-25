@@ -8,7 +8,11 @@ module.exports = {
     '!./node_modules',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        maingreen: '#329F5B'
+      }
+    },
   },
   plugins: [],
 }
