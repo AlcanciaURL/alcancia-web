@@ -6,13 +6,13 @@ const AccesosRapidos = () => {
                 <p>Acceso Rápido</p>
             </div>
             <div className=" h-[320px] text-lg text-[#71717a] text-center grid grid-cols-1 w-[100%] flex">
-                <div className="flex items-center justify-center hover:bg-[#CCDBD2] ">
+                <div className="flex items-center justify-center hover:bg-secondary ">
                     <p>Acreditar</p>
                 </div>
-                <div className="flex items-center justify-center hover:bg-[#CCDBD2]">
+                <div className="flex items-center justify-center hover:bg-secondary">
                     <p>Debitar</p>
                 </div>
-                <div className="flex items-center justify-center hover:bg-[#CCDBD2]">
+                <div className="flex items-center justify-center hover:bg-secondary">
                     <p>Plan Ahorro</p>
                 </div>
             </div>

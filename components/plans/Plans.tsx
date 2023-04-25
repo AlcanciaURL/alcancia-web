@@ -6,14 +6,14 @@ const Planes = () => {
             <div className="text-xl text-[#71717a] text-center bg-[#D9D9D9] h-[30px]">
                 <p>Últimos 10 movimientos</p>
             </div>
-            <div className=" h-[320px] text-lg text-[#71717a] text-center grid grid-cols-1 w-[100%] flex">
-                <div className="flex items-center justify-center hover:bg-[#CCDBD2] ">
+            <div className=" h-[320px] text-lg text-[#71717a] text-center grid grid-cols-1 w-[100%] ">
+                <div className="flex items-center justify-center hover:bg-secondary ">
                     <FaRegMinusSquare />
                     ¡Parece que no hay ningún plan!
                 </div>
 
                 {/* DIV EN CASO DE QUE SI HAY MOVIEMIENTOS
-                <div className="flex items-center justify-center hover:bg-[#CCDBD2]">
+                <div className="flex items-center justify-center hover:bg-secondary">
                     <p>Movimiento</p>
                 </div>
                 */}

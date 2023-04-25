@@ -10,7 +10,7 @@ const Dashboard = () => {
         <div>
             <Navbar />
             <div className="w-[100%] h-[100%] grid grid-rows-2 pt-2 sm:p-2">
-                <div className="w-[100%] h-[100%] grid grid-cols1 sm:grid-cols-3 gap-4">
+                <div className="w-[100%] h-[100%] grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <GraficaDashboard />
                     <AhorroGastos />
                     <AccesosRapidos />
