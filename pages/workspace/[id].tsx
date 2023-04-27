@@ -34,9 +34,9 @@ const Workspace = ({ id }: Props) => {
           <AhorroGastos workspace={workspace} />
           <AccesosRapidos workspace={workspace} refresh={() => getWorkspace(id)}/>
         </div>
-        <div className="w-screen h-screen grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           <HistorialMovimiento workspace={workspace} />
-          <Planes />
+          <Planes workspace={workspace}/>
         </div>
       </div>
     </div>

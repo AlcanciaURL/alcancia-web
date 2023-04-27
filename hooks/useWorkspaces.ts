@@ -72,6 +72,24 @@ const useWorkspaces = () => {
     }
   }
 
+  const joinWorkspace = async (workspaceId: number, userId: string) => {
+    try {
+      const { data } = await axios.put(`${API_URL}/workspace/users/${workspaceId}`,{
+        userId
+      })
+      return {
+        status: 'success',
+        message: 'Usuario agregado satisfactoriamente',
+      }
+    } catch (error) {
+      console.log(error)
+      return {
+        status: 'error',
+        message: 'Hubo un error desconocido',
+      }
+    }
+  }
+
   const getWorkspaces = () => {}
 
   return {
@@ -79,6 +97,7 @@ const useWorkspaces = () => {
     getWorkspace,
     getWorkspaces,
     workspace,
+    joinWorkspace,
     updateWorkspace,
   }
 }

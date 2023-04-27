@@ -10,6 +10,7 @@ type Transaction = {
   categoryId: number
   workspace: Workspace
   workspaceId: number
+  date: Date
   user: User
   userId: string
 }

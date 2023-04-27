@@ -7,7 +7,7 @@ type User = {
   lastName: string
   email: string
   userworkspace: UserWorkspace[]
-  intitations: Invitation[]
+  invitations: Invitation[]
   invitationsSend: Invitation[]
 }
 

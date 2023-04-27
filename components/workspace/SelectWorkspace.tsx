@@ -31,7 +31,7 @@ const SelectWorkspace = ({ selectWorkspace, user, refresh }: Props) => {
 
   return (
     <div className="w-full h-full flex flex-col justify-between items-center bg-white rounded-lg border-dashed shadow-xl border-2 border-[#329F5B] p-2 place-items-center">
-      <div className="w-full">
+      <div className="w-full min-h-[250px]">
         {user.userworkspace?.map((relation) => (
           <div
             key={relation.id}

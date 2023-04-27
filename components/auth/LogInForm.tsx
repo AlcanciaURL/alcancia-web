@@ -13,10 +13,9 @@ import GoogleLogo from '../assets/GoogleLogo'
 
 const LogInForm = () => {
   const { register, handleSubmit } = useForm()
-  const { login } = useAuth()
+  const { login, loginGoogle } = useAuth()
   const router = useRouter()
   const { openSnackbar } = useContext(SnackbarContext)
-  const provider = new GoogleAuthProvider()
 
   const onSubmit = async (data: any) => {
     const response = await login(data.email, data.password)
@@ -35,19 +34,21 @@ const LogInForm = () => {
     }
   }
 
-  const google = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result)
-        const token = credential?.accessToken
-        const user = result.user
+  const google = async () => {
+    const response = await loginGoogle()
+    if (response.status === 'success' && response.data) {
+      console.log(response.data)
+      openSnackbar({
+        message: response.message,
+        severity: response.status,
       })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        const email = error.customData.email
-        const credential = GoogleAuthProvider.credentialFromError(error)
+      router.push('/workspaces')
+    } else {
+      openSnackbar({
+        message: response.message,
+        severity: 'error',
       })
+    }
   }
 
   return (
@@ -82,7 +83,7 @@ const LogInForm = () => {
         </div>
         <div className="flex items-center justify-between pt-5">
           <button
-          onClick={() => router.push('/sign-in')}
+            onClick={() => router.push('/sign-in')}
             type="button"
             className="w-full bg-gray-200 text-gray-800 hover:bg-[#CCDBD2] font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
           >

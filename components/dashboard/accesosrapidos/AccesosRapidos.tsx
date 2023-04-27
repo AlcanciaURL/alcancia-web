@@ -1,6 +1,7 @@
 import { SessionContext } from '@/context/AuthProvider'
 import { SnackbarContext } from '@/context/SnackbarProvider'
 import useCategories from '@/hooks/useCategories'
+import useInvitations from '@/hooks/useInvitations'
 import useTransactions from '@/hooks/useTransactions'
 import Workspace from '@/types/Workspace'
 import { useContext, useEffect, useRef, useState } from 'react'
@@ -20,6 +21,7 @@ const AccesosRapidos = ({ workspace, refresh }: Props) => {
 
   const { createCategory } = useCategories()
   const { createTransaction } = useTransactions()
+  const { createInvitation } = useInvitations()
   const { openSnackbar } = useContext(SnackbarContext)
   const { session } = useContext(SessionContext)
 
@@ -43,6 +45,10 @@ const AccesosRapidos = ({ workspace, refresh }: Props) => {
         break
       case 3:
         setTitle('Listado de categorías')
+        break
+      case 4:
+        setTitle('Ingresar correo')
+        setValue('')
         break
       default:
         break
@@ -107,6 +113,27 @@ const AccesosRapidos = ({ workspace, refresh }: Props) => {
         setOpen(false)
         refresh()
       }
+    } else if (mode === 4) {
+      if (workspace.userWorkspace.find((userW) => userW.user.email === value) === undefined) {
+        const response = await createInvitation({
+          userId: session.uid!,
+          email: typeof value === 'number' ? value.toString() : value,
+          workspaceId: workspace.id,
+        })
+        if (response.status === 'success') {
+          openSnackbar({
+            message: response.message,
+            severity: response.status,
+          })
+          setOpen(false)
+          refresh()
+        }
+      } else {
+        openSnackbar({
+          message: 'Este usuario ya pertece al espacio de trabajo',
+          severity: 'error',
+        })
+      }
     }
   }
 
@@ -155,6 +182,12 @@ const AccesosRapidos = ({ workspace, refresh }: Props) => {
               <p>Ver categorías creadas</p>
             </div>
           </div>
+          <div
+            className="flex cursor-pointer w-full h-full items-center justify-center hover:bg-[#CCDBD2]"
+            onClick={() => handleModal(4)}
+          >
+            <p>Invitar usuario</p>
+          </div>
         </div>
       </div>
       {open && (
@@ -168,11 +201,11 @@ const AccesosRapidos = ({ workspace, refresh }: Props) => {
             onClick={handleInnerClick}
           >
             <h1 className="text-3xl mb-2">{title}</h1>
-            {(mode === 0 || mode === 1 || mode === 2) && (
+            {(mode === 0 || mode === 1 || mode === 2 || mode === 4) && (
               <>
                 <input
                   className="p-1 mb-4 bg-[#CCDBD2] appearance-none rounded-xl w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#CCDBD2] focus:border-2"
-                  type={mode === 2 ? 'text' : 'number'}
+                  type={mode === 2 || mode === 4 ? 'text' : 'number'}
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
                 />

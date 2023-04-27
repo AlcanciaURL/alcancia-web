@@ -80,10 +80,23 @@ const CreateWorkspace = ({ workspace, refresh }: Props) => {
             </div>
           </div>
           <div>
-            <h1>Monto actual: {moneyFormat('GTQ', workspace.currentAmount)}</h1>
+            <h1>
+              Monto actual:{' '}
+              {moneyFormat(
+                'GTQ',
+                workspace.transaction
+                  .map((transaction) => transaction.amount)
+                  .reduce((a, b) => {
+                    return a + b
+                  }, 0)
+              )}
+            </h1>
           </div>
           <div>
-            <button onClick={() => router.push(`/workspace/${workspace.id}`)} className="bg-[#D9D9D9] p-2 mt-3 rounded-lg  hover:bg-maingreen hover:text-white align-middle text-center">
+            <button
+              onClick={() => router.push(`/workspace/${workspace.id}`)}
+              className="bg-[#D9D9D9] p-2 mt-3 rounded-lg  hover:bg-maingreen hover:text-white align-middle text-center"
+            >
               Ingresar
             </button>
           </div>

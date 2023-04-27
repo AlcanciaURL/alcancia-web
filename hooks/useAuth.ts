@@ -1,8 +1,10 @@
 import { auth } from '@/services/Firebase'
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   User,
 } from 'firebase/auth'
 import HookResponse from '@/types/HookResponse'
@@ -19,6 +21,7 @@ type CreateUser = {
 
 const useAuth = () => {
   const { createUser } = useUsers()
+  const provider = new GoogleAuthProvider()
 
   const [loading, setLoading] = useState(false)
   const [currentUser, setCurrentUser] = useState<User | null | undefined>(
@@ -56,6 +59,33 @@ const useAuth = () => {
       return {
         status: 'error',
         message: 'Correo o contraseña incorrecta',
+      }
+    }
+  }
+
+  const loginGoogle = async () => {
+    try {
+      const userCredential = await signInWithPopup(auth, provider)
+      const user = userCredential.user
+      const response = await createUser({
+        id: user.uid,
+        firstName: user.displayName?.split(' ')[0] || '     ',
+        email: user.email ?? '                       ',
+        lastName: user.displayName?.split(' ')[1] || '     ',
+      })
+      setCurrentUser(user)
+      setLoading(false)
+      return {
+        status: 'success',
+        message: 'Usuario identificado correctamente',
+        data: user,
+      }
+    } catch (error: any) {
+      setLoading(false)
+      console.log(error)
+      return {
+        status: 'error',
+        message: 'No es posible ingresar con google',
       }
     }
   }
@@ -110,6 +140,7 @@ const useAuth = () => {
   return {
     login,
     loading,
+    loginGoogle,
     currentUser,
     signUp,
   }
