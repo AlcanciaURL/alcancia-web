@@ -1,5 +1,6 @@
+import { ReactNode } from 'react'
+import Empty from '@/layouts/Empty'
 import Head from 'next/head'
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -12,7 +13,12 @@ export default function Home() {
       </Head>
       <main>
         <div className="bg-black">testss</div>
+        <div><h1> JAJAJA</h1></div>
       </main>
     </>
   )
+}
+
+Home.layout = function layout(page: ReactNode) {
+  return <Empty>{page}</Empty>
 }
